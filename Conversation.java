@@ -1,5 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Random;
 class Conversation {
   public static void main(String[] arguments) {
     // You will start the conversation here.
@@ -11,8 +13,12 @@ class Conversation {
       System.out.println("Hi there!  What's on your mind?");
       String thoughts1 = thoughts.nextLine();
       thoughts1 = thoughts1.replace(",", "");
+      thoughts1 = thoughts1.replace(".", "");
+      thoughts1 = thoughts1.replace(";", "");
+      thoughts1 = thoughts1.replace("!", "");
+      thoughts1 = thoughts1.replace("?", "");
       String [] t_split = thoughts1.split("\\s+");
-      System.out.print(Arrays.toString(t_split));
+      // System.out.print(Arrays.toString(t_split));
       for (int i2 = 0; i2 < t_split.length; i2++){
       if (t_split[i2].equalsIgnoreCase("I")){
         thoughts1 = thoughts1.replace("I", "you");
@@ -34,15 +40,20 @@ class Conversation {
         thoughts1 = thoughts1.replace("your", "my");
         thoughts1 = thoughts1.replace("Your", "My");
       }
-    }
-    System.out.print(thoughts1);
-
-    }
+      
+      }thoughts1 = thoughts1 + "?";
+    Scanner thoughts_2 = new Scanner(System.in);
+    System.out.println(thoughts1);
+    String thoughts2 = thoughts_2.nextLine();
+    System.out.println("See ya!");
+    ArrayList<String> convo = new ArrayList<String>();
+    // convo.add(toString(rounds));
+    // convo.add(thoughts1);
+    // convo.add(thoughts2)
 
     
-
-
-
-
+    }
   }
+
 }
+
